@@ -31,12 +31,12 @@ annatel = AnnatelTv()
 
 
 def OnLoad() -> None:
-    try:
-        import pydevd  # with the addon script.module.pydevd, only use `import pydevd`
-        pydevd.settrace('localhost', stdoutToServer=True, stderrToServer=True)
-    except ImportError:
-        sys.stderr.write(
-            "Error: " + "You must add org.python.pydev.debug.pysrc to your PYTHONPATH.")
+    # try:
+    #     import pydevd  # with the addon script.module.pydevd, only use `import pydevd`
+    #     pydevd.settrace('localhost', stdoutToServer=True, stderrToServer=True)
+    # except ImportError:
+    #     sys.stderr.write(
+    #         "Error: " + "You must add org.python.pydev.debug.pysrc to your PYTHONPATH.")
 
     global tvCounter
     global tvThread

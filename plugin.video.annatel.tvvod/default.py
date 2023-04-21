@@ -108,7 +108,7 @@ class AnnatelTVVod:
 
     def initialstate(self):
         self.addDir('Chaines', "", "", 1, "")
-        self.addDir('Catégories', "", "", 4, "")
+        self.addDir('Categories', "", "", 4, "")
         self.addDir('Chercher', "", "", 10, "")
 
     def GET_CHANNELS(self):
@@ -122,8 +122,8 @@ class AnnatelTVVod:
         # Define the weekday names and month names in French
         weekday_names = ['lundi', 'mardi', 'mercredi',
                          'jeudi', 'vendredi', 'samedi', 'dimanche']
-        month_names = ['', 'janvier', 'février', 'mars', 'avril', 'mai', 'juin',
-                       'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre']
+        month_names = ['', 'janvier', 'fevrier', 'mars', 'avril', 'mai', 'juin',
+                       'juillet', 'août', 'septembre', 'octobre', 'novembre', 'decembre']
 
         for i in range(7):
             date = start_date + datetime.timedelta(days=i)
