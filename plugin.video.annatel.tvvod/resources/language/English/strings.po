@@ -1,0 +1,17 @@
+# Addon Name: vStream
+# Addon id: plugin.video.vStream
+# Addon Provider: vStream
+msgid ""
+msgstr ""
+
+msgctxt "#30021"
+msgid "General"
+msgstr ""
+
+msgctxt "#30022"
+msgid "Nom d'utilisateur"
+msgstr ""
+
+msgctxt "#30023"
+msgid "Mot de passe"
+msgstr ""

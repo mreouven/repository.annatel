@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon id="plugin.video.annatel.tvvod" name="Annatel TV Replay" version="1.0.0"
+	provider-name="Reouven Mimoun">
+	<requires>
+		<trycatch>
+			<try>
+				<import addon="xbmc.python" version="3.0.0" />
+			</try>
+			<catch>
+				<import addon="xbmc.python" version="2.24.0" />
+			</catch>
+		</trycatch>
+		<import addon="script.module.requests" />
+		<import addon="script.module.pytz" />
+		<!-- Pour le DEBUG        <import addon="script.module.pydevd" version="4.4.0"/> -->
+	</requires>
+
+	<extension point="xbmc.python.pluginsource" library="default.py">
+		<provides>video</provides>
+	</extension>
+
+	<extension point="xbmc.addon.metadata">
+		<summary>Annatel TV VOD</summary>
+		<description>Annatel TV VOD</description>
+		<platform>all</platform>
+		<assets>
+			<icon>icon.jpeg</icon>
+			<fanart>fanart.jpeg</fanart>
+		</assets>
+	</extension>
+</addon>

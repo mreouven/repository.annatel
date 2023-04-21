@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon id="plugin.video.annatel.tv" name="Annatel TV" version="1.0.0" provider-name="Reouven Mimoun">
+	<requires>
+		<trycatch>
+			<try>
+				<import addon="xbmc.python" version="3.0.0" />
+			</try>
+			<catch>
+				<import addon="xbmc.python" version="2.24.0" />
+			</catch>
+		</trycatch>
+		<import addon="script.module.requests" />
+		<import addon="pvr.iptvsimple" />
+		<!-- Pour le DEBUG        <import addon="script.module.pydevd" version="4.4.0"/> -->
+	</requires>
+	<extension point="xbmc.service" library="addon.py" start="[login|startup]" />
+	<extension point="xbmc.addon.metadata">
+		<platform>all</platform>
+		<summary>Annatel TV</summary>
+		<description>Annatel TV</description>
+		<platform>all</platform>
+		<extension point="xbmc.addon.metadata">
+			<summary>Annatel TV VOD</summary>
+			<description>Annatel TV VOD</description>
+			<platform>all</platform>
+			<assets>
+				<icon>icon.jpeg</icon>
+				<fanart>fanart.jpeg</fanart>
+			</assets>
+		</extension>
+	</extension>
+</addon>
