@@ -7,11 +7,11 @@
         <extension point="xbmc.addon.repository"
             name="Annatel TV Add-ons">
             <info compressed="false">
-                https://raw.githubusercontent.com/mreouven/repository.annatel/master/addons.xml</info>
+                http://raw.githubusercontent.com/mreouven/repository.annatel/master/addons.xml</info>
             <checksum>
-                https://raw.githubusercontent.com/mreouven/repository.annatel/master/addons.xml.md5</checksum>
+                http://raw.githubusercontent.com/mreouven/repository.annatel/master/addons.xml.md5</checksum>
             <datadir zip="true">
-                https://raw.githubusercontent.com/mreouven/repository.annatel/master/repo</datadir>
+                http://raw.githubusercontent.com/mreouven/repository.annatel/master/repo</datadir>
         </extension>
         <extension point="xbmc.addon.metadata">
             <summary>Install add-ons from mreouen's add-on repository</summary>
