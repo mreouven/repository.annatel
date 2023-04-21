@@ -2,7 +2,7 @@
 <addons>
     <addon id="repository.reouvenannatel"
         name="Annatel TV Add-ons"
-        version="1.0.0"
+        version="1.0.1"
         provider-name="Reouven Mimoun">
         <extension point="xbmc.addon.repository"
             name="Annatel TV Add-ons">
@@ -19,7 +19,7 @@
             <platform>all</platform>
         </extension>
     </addon>
-    <addon id="plugin.video.annatel.tv" name="Annatel TV" version="1.0.0"
+    <addon id="plugin.video.annatel.tv" name="Annatel TV" version="1.0.1"
         provider-name="Reouven Mimoun">
         <requires>
             <trycatch>
@@ -51,7 +51,7 @@
             </extension>
         </extension>
     </addon>
-    <addon id="plugin.video.annatel.tvvod" name="Annatel TV Replay" version="1.0.0"
+    <addon id="plugin.video.annatel.tvvod" name="Annatel TV Replay" version="1.0.1"
         provider-name="Reouven Mimoun">
         <requires>
             <trycatch>
