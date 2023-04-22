@@ -107,9 +107,10 @@ class AnnatelTVVod:
             sys.argv[1]), sortMethod=xbmcplugin.SORT_METHOD_LABEL)
 
     def initialstate(self):
-        self.addDir('Chaines', "", "", 1, "")
-        self.addDir('Catégories', "", "", 4, "")
-        self.addDir('Chercher', "", "", 10, "")
+        self.addDir('Chaines', "", "", 1,
+                    'replay.png')
+        self.addDir('Catégories', "", "", 4, "DefaultGenre.png")
+        self.addDir('Chercher', "", "", 10, 'DefaultAddonsSearch.png')
 
     def GET_CHANNELS(self):
         channels = annatel.GetRelavantChannels()
@@ -144,7 +145,8 @@ class AnnatelTVVod:
     def GET_CATEGORIES(self):
         categories = annatel.GetCategories()
         for category in categories:
-            self.addDir(category.capitalize(), category, "", 5, "")
+            self.addDir(category.capitalize(), category,
+                        "", 5, "DefaultCountry.png")
 
     def GET_CATEGORY(self, channel):
         categories = annatel.GetCategoryItems(channel)
@@ -164,12 +166,16 @@ class AnnatelTVVod:
                               program['description'], program['image'])
 
     def addDir(self, name, channel, date, mode, iconimage):
+        if 'Default' not in iconimage:
+            iconimage = 'special://home/addons/plugin.video.annatel.tvvod/resources/art/'+iconimage
         u = sys.argv[0]+"?channel="+urllib.parse.quote_plus(
             str(channel).encode('utf-8'))+"&mode="+str(mode)+"&date="+urllib.parse.quote_plus(str(date).encode('utf-8'))
         xbmc.log("URL: "+str(u), level=xbmc.LOGINFO)
         liz = xbmcgui.ListItem(
             name)
         liz.setInfo("video", {"title": name})
+        liz.setArt(
+            {'icon': iconimage})
         ok = xbmcplugin.addDirectoryItem(handle=int(
             sys.argv[1]), url=u, listitem=liz, isFolder=True)
         return ok
