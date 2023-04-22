@@ -108,7 +108,7 @@ class AnnatelTVVod:
 
     def initialstate(self):
         self.addDir('Chaines', "", "", 1, "")
-        self.addDir('Categories', "", "", 4, "")
+        self.addDir('Catégories', "", "", 4, "")
         self.addDir('Chercher', "", "", 10, "")
 
     def GET_CHANNELS(self):
@@ -122,8 +122,8 @@ class AnnatelTVVod:
         # Define the weekday names and month names in French
         weekday_names = ['lundi', 'mardi', 'mercredi',
                          'jeudi', 'vendredi', 'samedi', 'dimanche']
-        month_names = ['', 'janvier', 'fevrier', 'mars', 'avril', 'mai', 'juin',
-                       'juillet', 'août', 'septembre', 'octobre', 'novembre', 'decembre']
+        month_names = ['', 'janvier', 'février', 'mars', 'avril', 'mai', 'juin',
+                       'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre']
 
         for i in range(7):
             date = start_date + datetime.timedelta(days=i)
@@ -186,12 +186,14 @@ class AnnatelTVVod:
             sys.argv[1]), url=u, listitem=liz, isFolder=True)
 
     def play(self, id):
-        url = annatel.GetVideoURL(str(id))
-        xbmc.log("URL: "+str(url), level=xbmc.LOGINFO)
-        listitem = xbmcgui.ListItem('Ironman')
+        data = annatel.GetVideoURL(str(id))
+        xbmc.log("URL: "+str(data['url']), level=xbmc.LOGINFO)
+        listitem = xbmcgui.ListItem()
+        listitem.setArt(
+            {'icon': 'DefaultVideo.png', 'thumb': data['image'], 'poster': data['image'], 'banner': data['image']})
         listitem.setInfo(
-            'video', {'Title': 'Ironman', 'Genre': 'Science Fiction'})
-        xbmc.Player().play(url, listitem)
+            'video', {'Title': data['title'], 'Genre': data['category'], 'plot': data['description'], 'thumb': data['image']})
+        xbmc.Player().play(data['url'], listitem)
 
     def get_params(self):
         paramstring = sys.argv[2]
