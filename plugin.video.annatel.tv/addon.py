@@ -10,12 +10,6 @@ import xbmc
 from resources.lib.epgParser import EpgParser
 import traceback
 
-UpdateInterval = 4 * 3600  # 4 hours
-LoginInterval = 5  # 5 seconds
-RetryInterval = 5 * 60  # 5 minutes
-WaitInterval = 5  # 5 seconds
-
-
 tvThread: threading.Thread | None = None
 tvCounter: int = 0
 
@@ -87,7 +81,8 @@ def UpdateTVChannels() -> None:
         channels_list = annatel.GetTVChannels()
         if channels_list is not None:
             myIPTVSimple.RefreshIPTVlinks(channels_list)
-            # UpdateEpg(list(map(lambda x: x.uid, channels_list)))
+            UpdateEpg(list(map(lambda x: x.uid, channels_list)))
+            result = True
 
     except Exception as e:
         xbmc.log("Error: " + str(e), level=xbmc.LOGERROR)
