@@ -116,7 +116,7 @@ class AnnatelTVVod:
         channels = annatel.GetRelavantChannels()
         xbmc.log("Channels: "+str(channels), level=xbmc.LOGINFO)
         for channel in channels:
-            self.addDir(channel['name'], channel['id'], "", 2, "")
+            self.addDir(channel['name'], channel['id'], "", 2, "tv.png")
 
     def GET_DATES(self, channel):
         start_date = datetime.date.today() + datetime.timedelta(days=-7)
@@ -127,14 +127,14 @@ class AnnatelTVVod:
                        'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre']
 
         for i in range(7):
-            date = start_date + datetime.timedelta(days=i)
+            date = start_date + datetime.timedelta(days=i+1)
             weekday = weekday_names[date.weekday()]
             month = month_names[date.month]
             day = date.day
             year = date.year
             date_str = f"{weekday} {day} {month} {year}"
             self.addDir(date_str, channel,
-                        f"{year}-{date.month}-{date.day}", 3, "")
+                        f"{year}-{date.month}-{date.day}", 3, "annees.png")
 
     def GET_PROGRAMS(self, channel, date):
         programs = annatel.GetProgramByDate(channel, date)
