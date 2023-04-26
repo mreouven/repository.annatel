@@ -7,8 +7,10 @@ import os
 import urllib
 from xml.dom.minidom import parse
 from resources.lib.annatel import AnnatelTv
+from resources.lib.common import GetLogo
 from urllib.parse import parse_qs
 import datetime
+
 
 __settings__ = xbmcaddon.Addon(id='plugin.video.annatel.tvvod')
 __language__ = __settings__.getLocalizedString
@@ -31,7 +33,6 @@ class AnnatelTVVod:
     debug_mode = True  # Debug mode
 
     def __init__(self, *args, **kwargs):
-        xbmc.log(str(sys.argv), level=xbmc.LOGINFO)
         params = self.get_params()
         channel = None
         date = None
@@ -114,9 +115,9 @@ class AnnatelTVVod:
 
     def GET_CHANNELS(self):
         channels = annatel.GetRelavantChannels()
-        xbmc.log("Channels: "+str(channels), level=xbmc.LOGINFO)
         for channel in channels:
-            self.addDir(channel['name'], channel['id'], "", 2, "tv.png")
+            self.addDir(channel['name'], channel['id'], "",
+                        2, GetLogo(channel['logo']))
 
     def GET_DATES(self, channel):
         start_date = datetime.date.today() + datetime.timedelta(days=-7)
@@ -126,7 +127,7 @@ class AnnatelTVVod:
         month_names = ['', 'janvier', 'février', 'mars', 'avril', 'mai', 'juin',
                        'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre']
 
-        for i in range(7):
+        for i in reversed(range(7)):
             date = start_date + datetime.timedelta(days=i+1)
             weekday = weekday_names[date.weekday()]
             month = month_names[date.month]
@@ -159,18 +160,16 @@ class AnnatelTVVod:
         keyboard.doModal()
         if keyboard.isConfirmed() and keyboard.getText():
             query = keyboard.getText()
-            xbmc.log("Query: "+str(query), level=xbmc.LOGINFO)
             programs = annatel.Search(query)
             for program in programs:
                 self.addVideo(program['name'], program['id'],
                               program['description'], program['image'])
 
     def addDir(self, name, channel, date, mode, iconimage):
-        if 'Default' not in iconimage:
+        if 'Default' not in iconimage and 'special' not in iconimage:
             iconimage = 'special://home/addons/plugin.video.annatel.tvvod/resources/art/'+iconimage
         u = sys.argv[0]+"?channel="+urllib.parse.quote_plus(
             str(channel).encode('utf-8'))+"&mode="+str(mode)+"&date="+urllib.parse.quote_plus(str(date).encode('utf-8'))
-        xbmc.log("URL: "+str(u), level=xbmc.LOGINFO)
         liz = xbmcgui.ListItem(
             name)
         liz.setInfo("video", {"title": name})
@@ -193,7 +192,6 @@ class AnnatelTVVod:
 
     def play(self, id):
         data = annatel.GetVideoURL(str(id))
-        xbmc.log("URL: "+str(data['url']), level=xbmc.LOGINFO)
         listitem = xbmcgui.ListItem()
         listitem.setArt(
             {'icon': 'DefaultVideo.png', 'thumb': data['image'], 'poster': data['image'], 'banner': data['image']})
