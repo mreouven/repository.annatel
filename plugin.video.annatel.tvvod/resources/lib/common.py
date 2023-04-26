@@ -98,7 +98,7 @@ def GetLogo(logo_name, default_logo='tv.png'):
         filename = f"{logo_name}.png"
         full_filename = f'special://userdata/addon_data/{__AddonID__}/logos/{filename}'
         file_exists = (xbmcvfs.exists(full_filename)
-                       or DownloadFile(f'http://client.annatel.tv/images/channels/{filename}', full_filename))
+                       or DownloadFile(f'http://client.annatel.tv/images/channels/{filename}', f"{__AddonDataPath__}/logos/{filename}"))
         xbmc.log(f'Logo: {full_filename} exists: {file_exists}',
                  level=xbmc.LOGINFO)
         if (file_exists):
