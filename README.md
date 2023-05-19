@@ -32,7 +32,7 @@ Once the installation is finished, you can access the Live TV and Replay plugin 
 
 ## Support and Feedback
 
-If you encounter any issues or have suggestions for improving the plugin, please feel free to reach out to our support team at support@livetvreplayplugin.com. We appreciate your feedback and are committed to enhancing your experience with our plugin.
+If you encounter any issues or have suggestions for improving the plugin, please feel free to reach out to our support team at @mreouven We appreciate your feedback and are committed to enhancing your experience with our plugin.
 
 ## License
 
