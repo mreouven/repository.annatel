@@ -127,7 +127,7 @@ class AnnatelTVVod:
         month_names = ['', 'janvier', 'février', 'mars', 'avril', 'mai', 'juin',
                        'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre']
 
-        for i in reversed(range(7)):
+        for i in reversed(range(8)):
             date = start_date + datetime.timedelta(days=i+1)
             weekday = weekday_names[date.weekday()]
             month = month_names[date.month]
