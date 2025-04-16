@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <addons>
-    <addon id="plugin.video.annatel.tv" name="Annatel TV" version="1.0.3"
-        provider-name="Reouven Mimoun">
+    <addon id="plugin.video.annatel.tv" name="Annatel TV" version="1.0.3" provider-name="Reouven Mimoun">
         <requires>
             <trycatch>
                 <try>
@@ -13,27 +12,19 @@
             </trycatch>
             <import addon="script.module.requests" />
             <import addon="pvr.iptvsimple" />
-            <!-- Pour le DEBUG        <import addon="script.module.pydevd" version="4.4.0"/> -->
         </requires>
         <extension point="xbmc.service" library="addon.py" start="[login|startup]" />
         <extension point="xbmc.addon.metadata">
             <platform>all</platform>
             <summary>Annatel TV</summary>
-            <description>Annatel TV</description>
-            <platform>all</platform>
-            <extension point="xbmc.addon.metadata">
-                <summary>Annatel TV VOD</summary>
-                <description>Annatel TV VOD</description>
-                <platform>all</platform>
-                <assets>
-                    <icon>icon.jpeg</icon>
-                    <fanart>fanart.jpeg</fanart>
-                </assets>
-            </extension>
+            <description>Annatel TV Live Streaming Service</description>
+            <assets>
+                <icon>icon.jpeg</icon>
+                <fanart>fanart.jpeg</fanart>
+            </assets>
         </extension>
     </addon>
-    <addon id="plugin.video.annatel.tvvod" name="Annatel TV Replay" version="1.0.4"
-        provider-name="Reouven Mimoun">
+    <addon id="plugin.video.annatel.tvvod" name="Annatel TV Replay" version="1.0.4" provider-name="Reouven Mimoun">
         <requires>
             <trycatch>
                 <try>
@@ -45,16 +36,13 @@
             </trycatch>
             <import addon="script.module.requests" />
             <import addon="script.module.pytz" />
-            <!-- Pour le DEBUG        <import addon="script.module.pydevd" version="4.4.0"/> -->
         </requires>
-
         <extension point="xbmc.python.pluginsource" library="default.py">
             <provides>video</provides>
         </extension>
-
         <extension point="xbmc.addon.metadata">
             <summary>Annatel TV VOD</summary>
-            <description>Annatel TV VOD</description>
+            <description>Annatel TV Video on Demand Service</description>
             <platform>all</platform>
             <assets>
                 <icon>icon.jpeg</icon>
@@ -62,4 +50,4 @@
             </assets>
         </extension>
     </addon>
-</addons>
+</addons> 
